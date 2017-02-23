@@ -13,3 +13,5 @@ I updated some JavaScript libraries to the current version and updated some code
 ```JavaScript``` Libraries: ```D3.js 3.X```, ```DC.jS```, ```Crossfilter.js```, ```D3-Queue.js```, ```Underscore.js```, ```Leaflet.js```, ```jQuery.js```, ```Bootstrap.js```  
   
 Dashboard Template: [Keen IO](https://keen.io/)
+
+#### To be continued...
