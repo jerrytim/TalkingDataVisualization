@@ -43,7 +43,8 @@ function makeGraphs(error, recordsJson){
 	var numberRecordsND = dc.numberDisplay("#number-records-nd");
 	var timeChart = dc.barChart("#time-chart");
 	var genderChart = dc.rowChart("#gender-row-chart");
-	var ageSegmentChart = dc.rowChart("#age-segment-row-chart");
+	//var ageSegmentChart = dc.rowChart("#age-segment-row-chart");
+	var ageSegmentChart = dc.pieChart("#age-segment-pie-chart");
 	var phoneBrandChart = dc.rowChart("#phone-brand-row-chart");
 	var locationChart = dc.rowChart("#location-row-chart");
 
@@ -73,14 +74,27 @@ function makeGraphs(error, recordsJson){
 	        .elasticX(true)
 	        .xAxis().ticks(4);
 
-		ageSegmentChart
-			.width(300)
-			.height(150)
-	        .dimension(ageSegmentDim)
-	        .group(ageSegmentGroup)
-	        .ordinalColors(['#6baed6'])
-	        .elasticX(true)
-	        .xAxis().ticks(4);		
+		// ageSegmentChart
+		// 	.width(300)
+		// 	.height(150)
+	 //        .dimension(ageSegmentDim)
+	 //        .group(ageSegmentGroup)
+	 //        .ordinalColors(['#6baed6'])
+	 //        .elasticX(true)
+	 //        .xAxis().ticks(4);		
+
+	 	ageSegmentChart
+	 		.width(300)
+	 		.height(150)
+	 		// .externalLabels(50)
+	 		// .externalRadiusPadding(50)
+	 		.drawPaths(true)
+	 		.dimension(ageSegmentDim)
+	 		.group(ageSegmentGroup)
+	 		.legend(dc.legend())
+	 		.label(function(d) {
+				return (d.value / all.reduceCount().value() * 100).toFixed(2) + "%";
+			});
 
 	    phoneBrandChart
 			.width(300)
@@ -88,7 +102,7 @@ function makeGraphs(error, recordsJson){
 	        .dimension(phoneBrandDim)
 	        .group(phoneBrandGroup)
 	        .ordering(function(d) { return -d.value })
-	        .ordinalColors(['#6baed6'])
+	        .ordinalColors(["#4169E1", "#1E90FF", "#00BFFF", "#6495ED", "#87CEEB"])
 	        .elasticX(true)
 	        .xAxis().ticks(4);
 
